@@ -31,9 +31,7 @@ Link: [02-rabbit-mq.md](02-rabbit-mq.md)
 
 ### 03-redis-session.md - Redis Session Configuration with TDD
 
-A practical guide for configuring Redis session storage in Symfony 8.1 using Test-Driven Development principles. This document covers 9 implementation steps organized in 5 phases: Session Service configuration with unit tests, Environment setup with functional tests, Test environment configuration, HTTP session handling with controller tests, and complete workflow integration tests. Includes detailed code examples for Predis clients, environment variable injection, session lifecycle management, verification commands for Redis CLI, performance optimization options, and a production deployment checklist.
+A practical guide for configuring Redis session storage in Symfony 8.1 using Test-Driven Development principles. This document covers 9 implementation steps organized in 5 phases: Session Service configuration with unit tests, Environment setup with functional tests, Test environment configuration, HTTP session handling with controller tests, and complete workflow integration tests. Includes detailed code examples for  Predis clients, environment variable injection, session lifecycle management, verification commands for Redis CLI, performance optimization options, and a production deployment checklist.
 
 Link: [03-redis-session.md](03-redis-session.md)
-
----
 
