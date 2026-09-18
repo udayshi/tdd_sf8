@@ -268,7 +268,7 @@ services:
             - '%env(REDIS_URL)%'
 ```
 
-Important: Predis does NOT support the `locking` option. If you need session locking, either use the native Redis extension or implement a custom locking mechanism. See fix-redis.md for details.
+Important: Predis does NOT support the `locking` option. If you need session locking, either use the native Redis extension or implement a custom locking mechanism. 
 
 Or if using native Redis extension (with locking support):
 
@@ -976,8 +976,6 @@ services:
               lock_prefix: 'symfony_lock:'
               lock_ttl: 10
 ```
-
-For Predis client, locking is not supported. See fix-redis.md for alternatives.
 
 ### Session Serialization
 

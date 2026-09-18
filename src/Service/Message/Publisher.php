@@ -1,11 +1,11 @@
-final <?php
+<?php
 
 namespace App\Service\Message;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class Publisher
+final class Publisher
 {
     public function publish(string $message, string $routingKey = 'todo.created'): void
     {

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Tfinal odo;
+use App\Entity\Todo;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -11,7 +11,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TodoRepository extends ServiceEntityRepository
 {
-
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Todo::class);
+    }
 
     #[\Override]
     public function findAll(): array

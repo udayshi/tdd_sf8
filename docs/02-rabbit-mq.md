@@ -78,11 +78,7 @@ Functional Tests (Implementation-first):
   Implement code first
   Write test -> GREEN
   Refactor
-```
 
-**See:** `rabbit-mq-fail-reason.md` for detailed explanation of this issue.
-
----
 
 ## TDD Cycle: Phase 1 - Publisher Service
 
@@ -656,8 +652,6 @@ Before running the worker, you need to understand queue declarations:
 - Worker declares the queue with exclusive = true
 - This prevents RESOURCE_LOCKED errors
 
-If you get a queue lock error, see: `rabbit-mq-step14-error.md`
-
 ---
 
 ### Step 14: Clean RabbitMQ (First Time Only)
@@ -902,10 +896,6 @@ Without manual acknowledgment, messages would be lost:
 $channel->basic_ack($msg->delivery_info['delivery_tag']);
 ```
 
-### For Complete Details
-
-See: `rabbit-mq-persistence.md` for full guide on message persistence, testing, and advanced configurations.
-
 ---
 
 ## Key Learning: Queue Locking in RabbitMQ
@@ -947,10 +937,6 @@ docker restart rabbitmq
 ```
 
 This clears stuck queue declarations.
-
-### For Complete Details
-
-See: `rabbit-mq-step14-error.md` for full analysis and alternatives.
 
 ---
 
@@ -1010,10 +996,6 @@ IMPLEMENT -> RED -> GREEN -> REFACTOR
 ```
 
 Why? Symfony's kernel boot requires all #[AsCommand] classes to exist and be valid.
-
-### For Complete Details
-
-See rabbit-mq-fail-reason.md for the full analysis of why this happens and how to fix it.
 
 ---
 
@@ -1082,7 +1064,3 @@ Symfony 8.1+ auto-discovers services from `src/` directory. If a file exists but
 - For Unit Tests: RED -> GREEN -> REFACTOR
 - For Functional Tests: IMPLEMENT -> RED -> GREEN -> REFACTOR
 - For Integration Tests: Watch for infrastructure constraints
-- See also:
-  - rabbit-mq-fail-reason.md - Symfony auto-discovery learning
-  - rabbit-mq-step14-error.md - Queue locking learning
-  - rabbit-mq-persistence.md - Message persistence on crashes
