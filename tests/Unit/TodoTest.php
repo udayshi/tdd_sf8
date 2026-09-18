@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Unit;
 
 use App\Entity\Todo;
@@ -9,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class TodoTest extends TestCase
 {
     #[Test]
-    public function can_create_todo_with_title(): void
+    public function canCreateTodoWithTitle(): void
     {
         $todo = new Todo();
         $todo->setTitle('Buy groceries');
@@ -18,7 +20,7 @@ class TodoTest extends TestCase
     }
 
     #[Test]
-    public function can_set_description(): void
+    public function canSetDescription(): void
     {
         $todo = new Todo();
         $todo->setTitle('Buy groceries');
@@ -28,7 +30,7 @@ class TodoTest extends TestCase
     }
 
     #[Test]
-    public function has_created_at_timestamp(): void
+    public function hasCreatedAtTimestamp(): void
     {
         $todo = new Todo();
 

@@ -2,8 +2,7 @@
 
 namespace App\Entity;
 
-use DateTimeImmutable;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;final 
 
 #[ORM\Entity(repositoryClass: \App\Repository\TodoRepository::class)]
 #[ORM\Table(name: 'todo')]
@@ -24,17 +23,17 @@ class Todo
     private bool $completed = false;
 
     #[ORM\Column(type: 'datetime_immutable')]
-    private DateTimeImmutable $createdAt;
+    private \DateTimeImmutable $createdAt;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private ?DateTimeImmutable $updatedAt = null;
+    private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'todos')]
     private ?User $user = null;
 
     public function __construct()
     {
-        $this->createdAt = new DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -50,6 +49,7 @@ class Todo
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -61,6 +61,7 @@ class Todo
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -72,23 +73,13 @@ class Todo
     public function setCompleted(bool $completed): self
     {
         $this->completed = $completed;
+
         return $this;
     }
 
-    public function getCreatedAt(): DateTimeImmutable
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): ?DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-    #[ORM\PreUpdate]
-    public function setUpdatedAt(?DateTimeImmutable $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-        return $this;
     }
 
     public function getUser(): ?User

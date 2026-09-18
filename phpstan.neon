@@ -1,0 +1,19 @@
+includes:
+  - vendor/phpstan/phpstan-symfony/extension.neon
+  - vendor/phpstan/phpstan-doctrine/extension.neon
+
+parameters:
+  level: 8
+  paths:
+    - src
+
+  excludePaths:
+    - migrations
+    - tests
+    - vendor
+  reportUnmatchedIgnoredErrors: true
+  treatPhpDocTypesAsCertain: true
+  ignoreErrors:
+      -
+          message: '#Method App\\Kernel::getAllowedEnvs\(\) is unused#'
+          path: src/Kernel.php

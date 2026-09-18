@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command;
 
 use App\Service\Message\Publisher;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Consolfinal\Attribute\AsCommand;
 
 #[AsCommand(
     name: 'app:publish-mq',
@@ -21,11 +23,13 @@ class PublishMqCommand extends Command
         parent::__construct();
     }
 
+    #[\Override]
     protected function configure(): void
     {
         $this->addArgument('message', InputArgument::REQUIRED, 'Message to publish');
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -34,9 +38,11 @@ class PublishMqCommand extends Command
         try {
             $this->publisher->publish($message);
             $io->success("Message published: $message");
+
             return Command::SUCCESS;
         } catch (\Exception $e) {
-            $io->error("Failed to publish: " . $e->getMessage());
+            $io->error('Failed to publish: '.$e->getMessage());
+
             return Command::FAILURE;
         }
     }

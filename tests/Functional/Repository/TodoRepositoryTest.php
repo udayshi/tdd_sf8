@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional\Repository;
 
 use App\Entity\Todo;
@@ -26,7 +28,7 @@ class TodoRepositoryTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function can_create_and_persist_todo(): void
+    public function canCreateAndPersistTodo(): void
     {
         $todo = new Todo();
         $todo->setTitle('Learn Symfony');
@@ -40,7 +42,7 @@ class TodoRepositoryTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function can_find_todo_by_id(): void
+    public function canFindTodoById(): void
     {
         $todo = new Todo();
         $todo->setTitle('Learn TDD');
@@ -55,7 +57,7 @@ class TodoRepositoryTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function can_find_all_todos(): void
+    public function canFindAllTodos(): void
     {
         $todo1 = new Todo();
         $todo1->setTitle('Todo 1');
@@ -75,7 +77,7 @@ class TodoRepositoryTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function can_update_todo(): void
+    public function canUpdateTodo(): void
     {
         $todo = new Todo();
         $todo->setTitle('Original Title');
@@ -91,7 +93,7 @@ class TodoRepositoryTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function can_delete_todo(): void
+    public function canDeleteTodo(): void
     {
         $todo = new Todo();
         $todo->setTitle('To Delete');

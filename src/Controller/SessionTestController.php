@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Contrfinal oller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Attribute\Route;
@@ -15,7 +14,7 @@ class SessionTestController extends AbstractController
     public function setSessionData(
         SessionInterface $session,
         string $key,
-        string $value
+        string $value,
     ): Response {
         $session->set($key, $value);
 
@@ -32,7 +31,7 @@ class SessionTestController extends AbstractController
     #[Route('/get/{key}', name: 'session_get', methods: ['GET'])]
     public function getSessionData(
         SessionInterface $session,
-        string $key
+        string $key,
     ): Response {
         $value = $session->get($key);
 

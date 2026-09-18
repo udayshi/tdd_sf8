@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional;
 
-use App\Entity\Todo;
 use App\Entity\User;
 use App\Repository\TodoRepository;
 use App\Service\TodoService;
@@ -30,7 +31,7 @@ class SmokeTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function complete_todo_workflow(): void
+    public function completeTodoWorkflow(): void
     {
         // Create
         $todo = $this->service->createTodo('Complete Symfony TDD', 'Finish all phases');
@@ -62,7 +63,7 @@ class SmokeTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function multiple_todos_workflow(): void
+    public function multipleTodosWorkflow(): void
     {
         $todo1 = $this->service->createTodo('Task 1', 'Desc 1');
         $todo1->setUser($this->testUser);
@@ -79,7 +80,7 @@ class SmokeTest extends DatabaseTestCase
     }
 
     #[Test]
-    public function todo_deletion_workflow(): void
+    public function todoDeletionWorkflow(): void
     {
         $todo = $this->service->createTodo('To Delete');
         $todo->setUser($this->testUser);

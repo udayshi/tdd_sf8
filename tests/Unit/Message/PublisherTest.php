@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Unit\Message;
 
 use App\Service\Message\Publisher;
@@ -17,20 +19,20 @@ class PublisherTest extends TestCase
     }
 
     #[Test]
-    public function can_instantiate_publisher(): void
+    public function canInstantiatePublisher(): void
     {
         $this->assertInstanceOf(Publisher::class, $this->publisher);
     }
 
     #[Test]
-    public function can_publish_message(): void
+    public function canPublishMessage(): void
     {
         // Won't fail on actual RabbitMQ connection - just test method exists
         $this->assertTrue(method_exists($this->publisher, 'publish'));
     }
 
     #[Test]
-    public function publish_accepts_message_and_routing_key(): void
+    public function publishAcceptsMessageAndRoutingKey(): void
     {
         $reflection = new \ReflectionMethod(Publisher::class, 'publish');
         $params = $reflection->getParameters();

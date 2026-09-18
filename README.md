@@ -35,3 +35,35 @@ A practical guide for configuring Redis session storage in Symfony 8.1 using Tes
 
 Link: [03-redis-session.md](03-redis-session.md)
 
+---
+
+### lint.md - Linting and Type Checking Configuration Guide
+
+A comprehensive guide for configuring static analysis tools in your Symfony project. This document walks through setting up PHPStan for type checking, PHP-CS-Fixer for code style formatting, and Psalm for advanced type analysis. Covers installation, configuration, IDE integration, pre-commit hooks, and CI/CD setup. Includes practical workflows for daily development and gradual adoption strategies for existing codebases.
+
+Link: [lint.md](lint.md)
+
+---
+
+### strict.md - Adding declare(strict_types=1) to All Files
+
+A step-by-step guide for automatically adding `declare(strict_types=1);` to every PHP file in your project using PHP-CS-Fixer. Explains what strict types are, why they matter, and how they improve type safety. Covers dry-run previews, verification methods, common issues (wrong placement, duplicate declarations, new type errors), pre-commit hooks, and CI/CD integration. Includes troubleshooting for type mismatches that strict types may reveal.
+
+Link: [strict.md](strict.md)
+
+---
+
+### fix-redis.md - Redis Session Configuration Issues and Solutions
+
+Comprehensive troubleshooting guide for Redis session configuration problems. Documents the "locking option not supported" error when using Predis client, explains why it occurs, and provides three solutions: removing locking (recommended for Predis), using native Redis extension, or implementing custom locking. Includes detailed code examples, testing procedures, and comparison table of Redis clients and their capabilities.
+
+Link: [fix-redis.md](fix-redis.md)
+
+---
+
+### fix.md - PHPStan Static Analysis Error Fixes
+
+Comprehensive guide for resolving PHPStan type checking errors. Documents 4 specific errors found during static analysis with detailed explanations, root causes, and multiple solution options for each. Covers WorkerCommand prefetch_size type mismatch, TodoController array_map callback type issues, unused Kernel method, and TodoRepository missing generic types. Includes complete code examples showing before/after fixes, best practices for type hints and PHPStan configuration, and verification procedures.
+
+Link: [fix.md](fix.md)
+

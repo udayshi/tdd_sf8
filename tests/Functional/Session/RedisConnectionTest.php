@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional\Session;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -8,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class RedisConnectionTest extends KernelTestCase
 {
     #[Test]
-    public function redis_url_is_configured(): void
+    public function redisUrlIsConfigured(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
@@ -20,7 +22,7 @@ class RedisConnectionTest extends KernelTestCase
     }
 
     #[Test]
-    public function redis_dsn_format_is_valid(): void
+    public function redisDsnFormatIsValid(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
@@ -32,7 +34,7 @@ class RedisConnectionTest extends KernelTestCase
     }
 
     #[Test]
-    public function framework_config_uses_redis_handler(): void
+    public function frameworkConfigUsesRedisHandler(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Unit\Message;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -8,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class PublisherEnvironmentTest extends KernelTestCase
 {
     #[Test]
-    public function env_variables_are_accessible(): void
+    public function envVariablesAreAccessible(): void
     {
         $this->bootKernel();
         $container = static::getContainer();
@@ -22,7 +24,7 @@ class PublisherEnvironmentTest extends KernelTestCase
     }
 
     #[Test]
-    public function publisher_service_is_autowired(): void
+    public function publisherServiceIsAutowired(): void
     {
         $this->bootKernel();
         $container = static::getContainer();

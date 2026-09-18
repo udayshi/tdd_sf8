@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional\Session;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -8,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class CompleteWorkflowTest extends WebTestCase
 {
     #[Test]
-    public function complete_session_lifecycle(): void
+    public function completeSessionLifecycle(): void
     {
         $client = static::createClient();
 
@@ -22,7 +24,7 @@ class CompleteWorkflowTest extends WebTestCase
     }
 
     #[Test]
-    public function session_persists_across_multiple_requests(): void
+    public function sessionPersistsAcrossMultipleRequests(): void
     {
         $client = static::createClient();
 
@@ -39,7 +41,7 @@ class CompleteWorkflowTest extends WebTestCase
     }
 
     #[Test]
-    public function multiple_session_values_can_coexist(): void
+    public function multipleSessionValuesCanCoexist(): void
     {
         $client = static::createClient();
 
@@ -57,7 +59,7 @@ class CompleteWorkflowTest extends WebTestCase
     }
 
     #[Test]
-    public function session_can_be_destroyed(): void
+    public function sessionCanBeDestroyed(): void
     {
         $client = static::createClient();
 
