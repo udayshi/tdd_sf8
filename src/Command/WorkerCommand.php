@@ -3,7 +3,7 @@
 namespace App\Command;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use PhpAfinal mqpLib\Message\AMQPMessage;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -30,9 +30,10 @@ class WorkerCommand extends Command
         parent::__construct();
     }
 
+    #[\Override]
     protected function execute(
         InputInterface $input,
-        OutputInterface $output
+        OutputInterface $output,
     ): int {
         $io = new SymfonyStyle($input, $output);
 
@@ -56,7 +57,7 @@ class WorkerCommand extends Command
         $channel->queue_bind('queue', 'todos.demo', 'todo.created');
 
         // QoS
-        $channel->basic_qos(null, 1, null);
+        $channel->basic_qos(1, 1, null);
 
         $io->info('Worker listening for messages... Press Ctrl+C to stop.');
 
@@ -68,7 +69,7 @@ class WorkerCommand extends Command
             false,
             false,
             function (AMQPMessage $msg) use ($io, $channel) {
-                $io->writeln("Received: " . $msg->body);
+                $io->writeln('Received: '.$msg->body);
                 $channel->basic_ack($msg->delivery_info['delivery_tag']);
             }
         );

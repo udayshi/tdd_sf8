@@ -2,7 +2,7 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\Todo;
+use Afinal pp\Entity\Todo;
 use App\Repository\TodoRepository;
 use App\Service\TodoService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,16 +26,19 @@ class TodoController extends AbstractController
     public function list(): JsonResponse
     {
         $todos = $this->repository->findAll();
-
-        return $this->json([
-            'success' => true,
-            'data' => array_map(fn(Todo $todo) => [
+        $todos = array_map(function (Todo $todo): array {
+            return [
                 'id' => $todo->getId(),
                 'title' => $todo->getTitle(),
                 'description' => $todo->getDescription(),
                 'completed' => $todo->isCompleted(),
                 'createdAt' => $todo->getCreatedAt()->format('Y-m-d H:i:s'),
-            ], $todos),
+            ];
+        }, $todos);
+
+        return $this->json([
+            'success' => true,
+            'data' => $todos,
         ]);
     }
 

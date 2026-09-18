@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional\Command;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -9,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class WorkerMqCommandTest extends KernelTestCase
 {
     #[Test]
-    public function worker_command_exists(): void
+    public function workerCommandExists(): void
     {
         $kernel = self::bootKernel();
         $application = new Application($kernel);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Unit;
 
 use App\Entity\Todo;
@@ -17,7 +19,7 @@ class TodoServiceTest extends TestCase
     }
 
     #[Test]
-    public function can_create_new_todo(): void
+    public function canCreateNewTodo(): void
     {
         $title = 'Learn Symfony';
         $description = 'Complete TDD guide';
@@ -30,7 +32,7 @@ class TodoServiceTest extends TestCase
     }
 
     #[Test]
-    public function can_toggle_todo_completion(): void
+    public function canToggleTodoCompletion(): void
     {
         $todo = new Todo();
         $todo->setTitle('Test Todo');
@@ -44,7 +46,7 @@ class TodoServiceTest extends TestCase
     }
 
     #[Test]
-    public function title_is_required_when_creating(): void
+    public function titleIsRequiredWhenCreating(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Title cannot be empty');

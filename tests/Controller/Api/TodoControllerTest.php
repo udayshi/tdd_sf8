@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Controller\Api;
 
 use App\Entity\Todo;
 use App\Entity\User;
 use Doctrine\ORM\Tools\SchemaTool;
+use PHPUnit\Framework\Attributes\Test;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use PHPUnit\Framework\Attributes\Test;
 
 class TodoControllerTest extends WebTestCase
 {
@@ -27,23 +29,8 @@ class TodoControllerTest extends WebTestCase
         $em->flush();
     }
 
-    private function setupDatabase(): void
-    {
-        $em = self::getContainer()->get('doctrine.orm.entity_manager');
-        $metadataFactory = $em->getMetadataFactory();
-        $schemaTool = new SchemaTool($em);
-
-        try {
-            $schemaTool->dropSchema($metadataFactory->getAllMetadata());
-        } catch (\Exception) {
-            // Schema doesn't exist
-        }
-
-        $schemaTool->createSchema($metadataFactory->getAllMetadata());
-    }
-
     #[Test]
-    public function can_list_todos(): void
+    public function canListTodos(): void
     {
         $this->client->request('GET', '/api/todos');
 
@@ -54,7 +41,7 @@ class TodoControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function can_create_todo(): void
+    public function canCreateTodo(): void
     {
         $this->client->request('POST', '/api/todos', [], [], [
             'CONTENT_TYPE' => 'application/json',
@@ -70,7 +57,7 @@ class TodoControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function cannot_create_todo_without_title(): void
+    public function cannotCreateTodoWithoutTitle(): void
     {
         $this->client->request('POST', '/api/todos', [], [], [
             'CONTENT_TYPE' => 'application/json',
@@ -84,7 +71,7 @@ class TodoControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function can_show_todo(): void
+    public function canShowTodo(): void
     {
         $todo = new Todo();
         $todo->setTitle('Show Test');
@@ -101,7 +88,7 @@ class TodoControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function can_update_todo(): void
+    public function canUpdateTodo(): void
     {
         $todo = new Todo();
         $todo->setTitle('Original');
@@ -122,7 +109,7 @@ class TodoControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function can_delete_todo(): void
+    public function canDeleteTodo(): void
     {
         $todo = new Todo();
         $todo->setTitle('To Delete');
@@ -136,5 +123,20 @@ class TodoControllerTest extends WebTestCase
         $this->client->request('DELETE', "/api/todos/{$todoId}");
 
         $this->assertResponseStatusCodeSame(204);
+    }
+
+    private function setupDatabase(): void
+    {
+        $em = self::getContainer()->get('doctrine.orm.entity_manager');
+        $metadataFactory = $em->getMetadataFactory();
+        $schemaTool = new SchemaTool($em);
+
+        try {
+            $schemaTool->dropSchema($metadataFactory->getAllMetadata());
+        } catch (\Exception) {
+            // Schema doesn't exist
+        }
+
+        $schemaTool->createSchema($metadataFactory->getAllMetadata());
     }
 }

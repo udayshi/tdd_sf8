@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional\Controller;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -8,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class SessionControllerTest extends WebTestCase
 {
     #[Test]
-    public function session_data_can_be_set(): void
+    public function sessionDataCanBeSet(): void
     {
         $client = static::createClient();
 
@@ -23,7 +25,7 @@ class SessionControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function session_data_can_be_retrieved(): void
+    public function sessionDataCanBeRetrieved(): void
     {
         $client = static::createClient();
 
@@ -42,7 +44,7 @@ class SessionControllerTest extends WebTestCase
     }
 
     #[Test]
-    public function session_all_returns_session_data(): void
+    public function sessionAllReturnsSessionData(): void
     {
         $client = static::createClient();
 

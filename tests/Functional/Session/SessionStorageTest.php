@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Functional\Session;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -9,7 +11,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class SessionStorageTest extends KernelTestCase
 {
     #[Test]
-    public function session_can_be_created(): void
+    public function sessionCanBeCreated(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
@@ -20,13 +22,12 @@ class SessionStorageTest extends KernelTestCase
     }
 
     #[Test]
-    public function session_data_can_be_stored(): void
+    public function sessionDataCanBeStored(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
 
         $session = new Session();
-
 
         $session->set('test_key', 'test_value');
 
@@ -34,13 +35,12 @@ class SessionStorageTest extends KernelTestCase
     }
 
     #[Test]
-    public function session_data_persists(): void
+    public function sessionDataPersists(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
 
         $session = new Session();
-
 
         $session->set('user_id', 123);
         $session->set('username', 'testuser');
