@@ -2,10 +2,12 @@
 
  Test-Driven Development (TDD) with Symfony 8.1, with a complete Todo management API with comprehensive test coverage.
 
-
-
 ---
+## Why this Todos APP
+I developed this project as an adherence to my contractual obligations, which restrict me from exposing any development URLs. To verify my identity and demonstrate my capabilities, I've dedicated some time to create this swift demonstration.
 
+## Why TDD?
+Test-Driven Development (TDD) is essential in the AI age to ensure the accuracy of algorithms, facilitate early detection of errors, and allow efficient code refactoring. This approach enhances the reliability of AI systems, making development more efficient and improving overall code quality. TDD also aids in creating a flexible codebase, allowing easier integration with future systems.
 
 
 ## Table of Contents
