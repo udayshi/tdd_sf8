@@ -3,7 +3,7 @@
 namespace App\Command;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAfinal mqpLib\Message\AMQPMessage;
+use PhpAmqpLib\Message\AMQPMessage;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

@@ -338,8 +338,6 @@ Use sparingly—suppressing errors hides real bugs.
 
 ## 8. Common PHPStan Errors and Solutions
 
-See [fix.md](fix.md) for detailed explanations and solutions to common PHPStan errors you may encounter:
-
 ### instanceof.alwaysTrue
 **Error:** `Instanceof between App\Entity\Todo and App\Entity\Todo will always evaluate to true.`
 
@@ -353,8 +351,6 @@ array_map(function (object $todo): array { ... }, $todos);
 // ✅ After
 array_map(function (Todo $todo): array { ... }, $todos);
 ```
-
-See [fix.md#error-2-todocontroller---instanceofalwaystrue](fix.md#error-2-todocontroller---instanceofalwaystrue) for full details.
 
 ### Type Mismatch in Function Calls
 **Error:** `Parameter #1 $x of method Foo::bar() expects int, null given.`
@@ -383,8 +379,6 @@ class TodoRepository extends ServiceEntityRepository { }
 **Error:** `Method App\Kernel::getAllowedEnvs() is unused.`
 
 **Solution:** Remove unused code or use it in the codebase. Trust PHPStan—if it says something's unused, it probably is.
-
-For more details on these and other errors, see [fix.md](fix.md).
 
 ---
 
@@ -439,11 +433,6 @@ Disable auto-formatting in your IDE and only run `composer lint:fix` manually, o
 
 ---
 
-## Related Guides
-
-- **[strict.md](strict.md)** - How to add `declare(strict_types=1);` to all PHP files using PHP-CS-Fixer
-- **[fix.md](fix.md)** - Solutions for specific PHPStan errors with code examples
-
 ## Next Steps
 
 1. Install PHPStan: `composer require --dev phpstan/phpstan phpstan/phpstan-symfony phpstan/phpstan-doctrine`
@@ -451,5 +440,5 @@ Disable auto-formatting in your IDE and only run `composer lint:fix` manually, o
 3. Run `composer lint:types`
 4. Fix errors, then commit
 5. Add PHP-CS-Fixer, set up scripts, integrate into workflow
-6. Add `declare_strict_types: true` rule to enforce strict types (see [strict.md](strict.md))
+
 

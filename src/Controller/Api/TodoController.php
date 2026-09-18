@@ -2,7 +2,7 @@
 
 namespace App\Controller\Api;
 
-use Afinal pp\Entity\Todo;
+use App\Entity\Todo;
 use App\Repository\TodoRepository;
 use App\Service\TodoService;
 use Doctrine\ORM\EntityManagerInterface;
