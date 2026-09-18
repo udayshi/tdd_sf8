@@ -31,17 +31,7 @@ Link: [02-rabbit-mq.md](02-rabbit-mq.md)
 
 ### 03-redis-session.md - Redis Session Configuration with TDD
 
-A practical guide for configuring Redis session storage in Symfony 8.1 using Test-Driven Development principles. This document covers 9 implementation steps organized in 5 phases: Session Service configuration with unit tests, Environment setup with functional tests, Test environment configuration, HTTP session handling with controller tests, and complete workflow integration tests. Includes detailed code examples for both Redis and Predis clients, environment variable injection, session lifecycle management, verification commands for Redis CLI, performance optimization options, and a production deployment checklist.
+A practical guide for configuring Redis session storage in Symfony 8.1 using Test-Driven Development principles. This document covers 9 implementation steps organized in 5 phases: Session Service configuration with unit tests, Environment setup with functional tests, Test environment configuration, HTTP session handling with controller tests, and complete workflow integration tests. Includes detailed code examples for  Predis clients, environment variable injection, session lifecycle management, verification commands for Redis CLI, performance optimization options, and a production deployment checklist.
 
 Link: [03-redis-session.md](03-redis-session.md)
-
----
-
-## Supporting Documentation
-
-### fix-redis.md - Redis Session Configuration Issues and Solutions
-
-Comprehensive troubleshooting guide for Redis session configuration problems. Documents the "locking option not supported" error when using Predis client, explains why it occurs, and provides three solutions: removing locking (recommended for Predis), using native Redis extension, or implementing custom locking. Includes detailed code examples, testing procedures, and comparison table of Redis clients and their capabilities.
-
-Link: [fix-redis.md](fix-redis.md)
 
